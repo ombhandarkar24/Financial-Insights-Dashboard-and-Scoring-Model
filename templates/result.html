@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Score Results</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #FF6F61, #D9B5B5);
+            color: #333;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 80%;
+            max-width: 900px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            color: #FF6F61;
+            margin-bottom: 10px;
+        }
+
+        .result-item {
+            background-color: #F9F9F9;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .insights-item {
+            background-color: #FFF8E1;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        ul li {
+            padding: 8px;
+            font-size: 1rem;
+            color: #333;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .footer {
+            text-align: center;
+            font-size: 1rem;
+            margin-top: 30px;
+            color: #aaa;
+        }
+
+        a {
+            text-decoration: none;
+            font-size: 1.2rem;
+            color: #FF6F61;
+            border: 2px solid #FF6F61;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        a:hover {
+            background-color: #FF6F61;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Financial Score Results</h1>
+
+        <div class="result-item">
+            <h2>Financial Score:</h2>
+            <ul>
+                {% for score in financial_score %}
+                    <li><strong>Family ID:</strong> {{ score['Family_ID'] }}</li>
+                    <li><strong>Member ID:</strong> {{ score['Member_ID'] }}</li>
+                    <li><strong>Financial Score:</strong> {{ score['financial_score'] }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div class="insights-item">
+            <h2>Insights:</h2>
+            <ul>
+                <li><strong>Credit Card Trend:</strong> {{ insights['credit_card_trend_insight'] }}</li>
+                <li><strong>Expenses Insight:</strong> {{ insights['expenses_insight'] }}</li>
+                <li><strong>Loan Insight:</strong> {{ insights['loan_insight'] }}</li>
+                <li><strong>Savings Insight:</strong> {{ insights['savings_insight'] }}</li>
+            </ul>
+        </div>
+
+        <a href="/">Go back to the input form</a>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2024 Financial Scoring Model. All rights reserved.</p>
+    </div>
+
+</body>
+</html>

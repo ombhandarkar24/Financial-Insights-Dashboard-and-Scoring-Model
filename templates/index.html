@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Family Financial Scoring Model</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #FF6F61, #D9B5B5);
+            color: #333;
+            line-height: 1.6;
+            padding: 0;
+        }
+
+        .container {
+            width: 80%;
+            max-width: 900px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        label {
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            display: block;
+            color: #333;
+        }
+
+        input[type="text"], input[type="number"], select {
+            width: 100%;
+            padding: 12px;
+            font-size: 1rem;
+            margin-bottom: 15px;
+            border-radius: 10px;
+            border: 2px solid #ddd;
+            transition: all 0.3s ease;
+        }
+
+        input[type="text"]:focus, input[type="number"]:focus, select:focus {
+            border-color: #FF6F61;
+            outline: none;
+        }
+
+        .submit-btn {
+            background-color: #FF6F61;
+            color: white;
+            font-size: 1.2rem;
+            padding: 15px 25px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background-color: #D94D40;
+            transform: translateY(-5px);
+        }
+
+        .footer {
+            text-align: center;
+            font-size: 1rem;
+            margin-top: 40px;
+            color: #aaa;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .container {
+                width: 90%;
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .submit-btn {
+                padding: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Family Financial Scoring Model</h1>
+        <form action="/calculate_score" method="POST">
+            <label for="Family_ID">Family ID:</label>
+            <input type="text" id="Family_ID" name="Family_ID" required>
+
+            <label for="Member_ID">Member ID:</label>
+            <input type="text" id="Member_ID" name="Member_ID" required>
+
+            <label for="Income">Income ($):</label>
+            <input type="number" id="Income" name="Income" required>
+
+            <label for="Savings">Savings ($):</label>
+            <input type="number" id="Savings" name="Savings" required>
+
+            <label for="Monthly_Expenses">Monthly Expenses ($):</label>
+            <input type="number" id="Monthly_Expenses" name="Monthly_Expenses" required>
+
+            <label for="Loan_Payments">Loan Payments ($):</label>
+            <input type="number" id="Loan_Payments" name="Loan_Payments" required>
+
+            <label for="Credit_Card_Spending">Credit Card Spending ($):</label>
+            <input type="number" id="Credit_Card_Spending" name="Credit_Card_Spending" required>
+
+            <label for="Category">Spending Category:</label>
+            <select id="Category" name="Category" required>
+                <option value="Groceries">Groceries</option>
+                <option value="Healthcare">Healthcare</option>
+                <option value="Utilities">Utilities</option>
+                <option value="Food">Food</option>
+                <option value="Entertainment">Entertainment</option>
+                <option value="Travel">Travel</option>
+            </select>
+
+            <label for="Amount">Amount Spent in Category ($):</label>
+            <input type="number" id="Amount" name="Amount" required>
+
+            <label for="Financial_Goals_Met">Financial Goals Met (%):</label>
+            <input type="number" id="Financial_Goals_Met" name="Financial_Goals_Met" required>
+
+            <button type="submit" class="submit-btn">Calculate Financial Score</button>
+        </form>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2024 Financial Scoring Model. All rights reserved.</p>
+    </div>
+
+</body>
+</html>
